@@ -5,6 +5,10 @@ import { Providers } from "./providers";
 import "./styles/navBar.scss";
 import "./styles/heroSection.scss";
 import "./styles/heroCard.scss";
+import "./styles/reviewPage.scss";
+import "./styles/scrollableTag.scss";
+import "./styles/reviewCard.scss";
+import "./styles/modal.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 

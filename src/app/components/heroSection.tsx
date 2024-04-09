@@ -23,7 +23,7 @@ export default function HeroSection() {
                     </Text>
                     <Text className='hero-subtitle-text'>
                         See through the lenses of people who have
-                        lived or visited the neighbourhood you might
+                        lived or visited the neighborhood you might
                         have in mind.
                     </Text>
                 </VStack>

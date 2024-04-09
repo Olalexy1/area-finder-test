@@ -1,95 +1,125 @@
+'use client';
+import React from 'react';
 import Image from "next/image";
-import styles from "./page.module.scss";
+import NavBar from "../components/navBar";
+import { HStack, VStack, Text, Button, Icon, IconButton, SimpleGrid, Box, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Select } from "@chakra-ui/react";
+import { CiBookmark, CiShare2 } from "react-icons/ci";
+import ScrollableTags from "../components/scrollableTags";
+import ReviewCard from "../components/reviewCard";
+import { reviewDummyData } from "@/utils/dummyData";
+import { galleryImg, galleryImg2, galleryImg3 } from "@/utils/images";
+import ModalWithButton from '../components/modal';
 
-export default function Home() {
+
+export default function Reviews() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Review&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <div className="review-page">
+      <VStack className='header'>
+        <NavBar />
+        <HStack width="100%" justifyContent={"space-between"} mt={'82px'}>
+          <VStack>
+            <Text className="address-text">Bonny and Clyde Street, Ajao Estate, Lagos
+            </Text>
+            <Text className="address-subtext">
+              "450" Reviews <span>(People are raving about the selected location)</span>
+            </Text>
+          </VStack>
+          <HStack gap={'16px'}>
+
+            <ModalWithButton/>
+
+            <IconButton
+              size='md'
+              variant='outline'
+              aria-label='Bookmark'
+              borderColor='#3366FF'
+              width='56px'
+              height='50px'
+              color='#3366FF'
+              icon={<CiBookmark />}
             />
-          </a>
-        </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <IconButton
+              size='md'
+              variant='outline'
+              aria-label='Share'
+              borderColor='#3366FF'
+              width='56px'
+              height='50px'
+              color='#3366FF'
+              icon={<CiShare2 />}
+            />
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+            {/* <Icon as={CiShare2} w={'18px'} h={'19.92px'} color='#3366FF' /> */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          </HStack>
+        </HStack>
+        <ScrollableTags />
+      </VStack>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+      <VStack className='review-section'>
+        <HStack width={'100%'} alignItems={'flex-start'} justifyContent={'space-between'} gap={'28px'}>
+          <VStack className="review-card-container">
+            {reviewDummyData.map((item, index) => (
+              <React.Fragment key={item.id}>
+                <ReviewCard
+                  id={item.id}
+                  name={item.name}
+                  rating={item.rating}
+                  comment={item.comment}
+                  thumbsUp={item.thumbsUp}
+                  thumbsDown={item.thumbsDown}
+                  messagesCount={item.messagesCount}
+                  duration={item.duration}
+                  location={item.location}
+                />
+                {index !== reviewDummyData.length - 1 && <Divider marginY={'8px'} />}
+              </React.Fragment>
+            ))}
+          </VStack>
+          <HStack className="image-container">
+            <SimpleGrid columns={2} gap={'5px'} >
+              <Image
+                className="gallery-img"
+                src={galleryImg}
+                alt="Gallery Image"
+                // width={235}
+                // height={224}
+                priority
+              />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+              <Image
+                className="gallery-img"
+                src={galleryImg2}
+                alt="Gallery Image"
+                // width={235}
+                // height={224}
+                priority
+              />
+
+              <Image
+                className="gallery-img"
+                src={galleryImg3}
+                alt="Gallery Image"
+                // width={235}
+                // height={224}
+                priority
+              />
+              <Box className="gallery-img">
+                <Image
+                  src={galleryImg}
+                  alt="Gallery Image"
+                  // width={235}
+                  // height={224}
+                  style={{ borderRadius: '8px' }}
+                  priority
+                />
+              </Box>
+            </SimpleGrid>
+          </HStack>
+        </HStack>
+      </VStack>
+    </div>
   );
 }

@@ -1,0 +1,48 @@
+.modal-container {
+    border-radius: 6px;
+    border: 1px solid #D4DCF1;
+    padding: 20px;
+
+    .modal-header {
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: center;
+    }
+
+    .modal-address {
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .modal-select {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.1px;
+        text-align: left;
+    }
+
+    .modal-label {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.94px;
+        text-align: left;
+    }
+
+    .modal-check {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.94px;
+        text-align: left;
+    }
+
+}

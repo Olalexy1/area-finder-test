@@ -1,12 +1,14 @@
 .app_navBar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    // border: 1px solid red;
-    height: 50px;
+    border: 1px solid red;
+    height: 82px;
     width: 100%;
     padding-inline: 100px;
     position: fixed;
     background-color: #fff;
+    z-index: 9;
 
     .logo-Text {
         font-family: Clash Display;
@@ -18,8 +20,6 @@
     }
 
     .logo-Text-Ng {
-        // width: Hug (19px)px;
-        // height: Hug (13px)px;
         padding: 2px 4px 2px 4px;
         border-radius: 2px;
         opacity: 0px;

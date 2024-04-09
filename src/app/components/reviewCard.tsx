@@ -21,10 +21,9 @@ export interface HeroCardProps {
     thumbsUp: number,
     thumbsDown: number,
     messagesCount: number,
-    badgeText?: string
 }
 
-const HeroCard: React.FunctionComponent<HeroCardProps> = ({
+const ReviewCard: React.FunctionComponent<HeroCardProps> = ({
     id,
     name,
     duration,
@@ -33,8 +32,7 @@ const HeroCard: React.FunctionComponent<HeroCardProps> = ({
     comment,
     thumbsUp,
     thumbsDown,
-    messagesCount,
-    badgeText
+    messagesCount
 }) => {
 
     const createMarkup = (html: string) => {
@@ -42,7 +40,7 @@ const HeroCard: React.FunctionComponent<HeroCardProps> = ({
     };
 
     return (
-        <Box borderWidth='1px' borderRadius='15px' overflow='hidden' padding={'16px'} className='hero-card'>
+        <Box overflow='hidden' className='review-card'>
             <HStack width={'100%'} justifyContent={'space-between'}>
                 <HStack>
                     <Image
@@ -53,35 +51,26 @@ const HeroCard: React.FunctionComponent<HeroCardProps> = ({
                         height={25}
                         priority
                     />
-                    <VStack gap={0} justifyContent={'left'}>
+                    <HStack gap={'5px'} >
                         <Text className='card-name'>{name}</Text>
                         <Text className='card-duration'>{duration}</Text>
-                    </VStack>
+                    </HStack>
                 </HStack>
 
-                <VStack gap={0} justifyContent={'left'}>
-                    <Text className='location-text'>
-                        {location}
-                    </Text>
-                    <Box display='flex' alignItems='center' gap={'1px'}>
-                        {Array(5)
-                            .fill('')
-                            .map((_, i) => (
-                                <StarIcon
-                                    key={i}
-                                    color={i < rating ? '#FABB07' : '#D1D1D1'}
-                                    boxSize={'12px'}
-                                />
-                            ))}
-                    </Box>
-                </VStack>
+                <HStack gap={'5px'} alignItems={'center'}>
+                    <StarIcon
+                        color={ '#FABB07'}
+                        boxSize={'12px'}
+                    />
+                    <Text className='card-rating'>{rating}.0</Text>
+                </HStack>
             </HStack>
 
 
             <div className='card-body' dangerouslySetInnerHTML={createMarkup(comment)} />
 
             <HStack width={'100%'} justifyContent={'space-between'}>
-                <HStack>
+                <HStack gap={'32px'}>
                     <HStack gap={'4px'}>
                         <Image
                             src="/thumbs-up.svg"
@@ -113,17 +102,9 @@ const HeroCard: React.FunctionComponent<HeroCardProps> = ({
                         <Text className='card-count'>{messagesCount}</Text>
                     </HStack>
                 </HStack>
-
-                <Text
-                    border={badgeText === 'traffic' ? '1px solid #A07C22' : badgeText === 'network' ? '1px solid  #AD307B' : badgeText === 'power' ? 'none' : badgeText === 'water' ? '#2863B8' : badgeText === 'security' ? '#6A498E' : badgeText === 'road' ? '#B26D22' : ''}
-                    backgroundColor={badgeText === 'traffic' ? '#F5E9CB' : badgeText === 'network' ? '#FCDCEF' : badgeText === 'power' ? '#F66A57' : badgeText === 'water' ? '#D1E4FA' : badgeText === 'security' ? '#E4CEFD' : badgeText === 'road' ? '#F3DFCC' : ''}
-                    color={badgeText === 'traffic' ? '#594510' : badgeText === 'network' ? '#821958' : badgeText === 'power' ? '#1E1E1E' : badgeText === 'water' ? '#1F4781' : badgeText === 'security' ? '#472270' : badgeText === 'road' ? '#5F380E' : ''}
-                    className='card-badge'>{badgeText}
-                </Text>
             </HStack>
         </Box>
     )
 }
 
-export default HeroCard
-
+export default ReviewCard;

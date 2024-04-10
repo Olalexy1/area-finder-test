@@ -9,6 +9,9 @@ import {
     InputLeftElement,
     Input,
     Button,
+    SimpleGrid,
+    Box,
+    HStack
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 import HeroCard from './heroCard';
@@ -18,7 +21,7 @@ export default function HeroSection() {
     return (
         <div className='app_heroSection'>
             <VStack alignItems="left" className='hero-text-container'>
-                <VStack className='hero-text-inner-container' alignItems="left">
+                <VStack width={'60%'} className='hero-text-inner-container' alignItems="left">
                     <Text className='hero-title-text'>Find a place you will love to live!
                     </Text>
                     <Text className='hero-subtitle-text'>
@@ -27,13 +30,16 @@ export default function HeroSection() {
                         have in mind.
                     </Text>
                 </VStack>
-                <InputGroup>
-                    <InputLeftElement pointerEvents='none'>
-                        <Search2Icon color='#0D2159' />
-                    </InputLeftElement>
-                    <Input type='search' placeholder='Enter Address' border={"1px solid #D4DCF1"} background={'#F3F7FE'} marginBottom={'10px'}
-                        className='input-text' />
-                </InputGroup>
+
+                <HStack width={'calc(60% + 40px)'}>
+                    <InputGroup marginStart={'1px'}>
+                        <InputLeftElement pointerEvents='none'>
+                            <Search2Icon color='#0D2159' />
+                        </InputLeftElement>
+                        <Input type='search' placeholder='Enter Address' border={"1px solid #D4DCF1"} background={'#F3F7FE'} marginBottom={'10px'}
+                            className='input-text' />
+                    </InputGroup>
+                </HStack>
 
                 <Button
                     size='md'
@@ -48,15 +54,20 @@ export default function HeroSection() {
                 </Button>
             </VStack>
 
-            <div className='hero-card-container'>
+            <Box>
+                <SimpleGrid columns={2} gap={'22px'} width={'556px'} height={'100%'}
+                    className='hero-card-container'
+                >
+                    {
+                        reviewDummyData.map((item,) => (
+                            <HeroCard id={item.id} name={item.name} rating={item.rating} comment={item.comment} thumbsUp={item.thumbsUp} thumbsDown={item.thumbsDown} messagesCount={item.messagesCount} badgeText={item.badgeText} duration={item.duration} location={item.location} />
+                        ))
+                    }
 
-                {
-                    reviewDummyData.map((item,) => (
-                        <HeroCard id={item.id} name={item.name} rating={item.rating} comment={item.comment} thumbsUp={item.thumbsUp} thumbsDown={item.thumbsDown} messagesCount={item.messagesCount} badgeText={item.badgeText} duration={item.duration} location={item.location} />
-                    ))
-                }
+                </SimpleGrid>
+            </Box>
 
-            </div>
+
         </div>
     )
 }

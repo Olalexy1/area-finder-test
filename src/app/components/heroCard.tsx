@@ -42,7 +42,7 @@ const HeroCard: React.FunctionComponent<HeroCardProps> = ({
     };
 
     return (
-        <Box borderWidth='1px' borderRadius='15px' overflow='hidden' padding={'16px'} className='hero-card'>
+        <Box borderWidth='1px' borderRadius='15px' padding={'16px'} className='hero-card'>
             <HStack width={'100%'} justifyContent={'space-between'}>
                 <HStack>
                     <Image

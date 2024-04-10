@@ -17,7 +17,7 @@ export default function Reviews() {
     <div className="review-page">
       <VStack className='header'>
         <NavBar />
-        <HStack width="100%" justifyContent={"space-between"} mt={'82px'}>
+        <HStack width="100%" justifyContent={"space-between"}>
           <VStack>
             <Text className="address-text">Bonny and Clyde Street, Ajao Estate, Lagos
             </Text>
@@ -35,7 +35,8 @@ export default function Reviews() {
               aria-label='Bookmark'
               borderColor='#3366FF'
               width='56px'
-              height='50px'
+              // height='50px'
+              padding="16px, 40px, 16px, 40px"
               color='#3366FF'
               icon={<CiBookmark />}
             />
@@ -46,7 +47,8 @@ export default function Reviews() {
               aria-label='Share'
               borderColor='#3366FF'
               width='56px'
-              height='50px'
+              // height='50px'
+              padding="16px, 40px, 16px, 40px"
               color='#3366FF'
               icon={<CiShare2 />}
             />

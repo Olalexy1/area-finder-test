@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 
-const tagData = ["Schools", "Hospitals", "Resort Park", "Shopping Malls", "Airport", "Train Station", "NightLife", "Public Wifi", "Parking Lot", "Security", "Public Transport", "Bus Station", "Quiet", "Beaches", "Bars", "Casinos", "Bus Station", "Quiet", "Beaches", "Bars", "Casinos"]
+export const tagData = ["Schools", "Hospitals", "Resort Park", "Shopping Malls", "Airport", "Train Station", "NightLife", "Public Wifi", "Parking Lot", "Security", "Public Transport", "Bus Station", "Quiet", "Beaches", "Bars", "Casinos", "Bus Station", "Quiet", "Beaches", "Bars", "Casinos"]
 
 
 const ScrollableTags = () => {
